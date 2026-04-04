@@ -1,0 +1,21 @@
+/// @ function sort_stats(list)
+/// @ description Add selected stats to a list so that they can be displayed (just the enums, not the ACTUAL values)
+/// @ param {real} list - which list will hold the stats
+function sort_stats(list)
+{
+	ds_list_add(list, STATS.class)
+	ds_list_add(list, STATS.hp_max)
+	ds_list_add(list, STATS.mp_max)
+	ds_list_add(list, STATS.level)
+	ds_list_add(list, STATS.xp)
+	ds_list_add(list, STATS.strength)
+	ds_list_add(list, STATS.intelligence)
+	ds_list_add(list, STATS.defence)
+	ds_list_add(list, STATS.wisdom)
+	ds_list_add(list, STATS.accuracy)
+	ds_list_add(list, STATS.agility)
+	ds_list_add(list, STATS.block_chance_melee)
+	ds_list_add(list, STATS.block_chance_range)
+	ds_list_add(list, STATS.fire_resist)
+	ds_list_add(list, STATS.ice_resist)
+}

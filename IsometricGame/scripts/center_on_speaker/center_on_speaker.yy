@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"center_on_speaker",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"center_on_speaker",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

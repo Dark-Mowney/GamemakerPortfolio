@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"army_screen_draw_unit",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"army_screen_draw_unit",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"remove_digits",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"remove_digits",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
