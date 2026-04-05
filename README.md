@@ -24,7 +24,7 @@ Here is a [physics puzzle game](https://gx.games/games/urfo75/physicspuzzlegame/
 
 ## Isometric Tactics Game Level Editor
 
-This repository also includes an [Isometric Tactics game level editor](https://gx.games/games/sxf6us/isometricgame/tracks/b9575e97-92f6-4e65-942b-05878ab3a5a4/) developed in the GameMaker engine. Click the link to try the level editor in the browser on GX.games, but keep in mind that not everything will function as intended in-browser; the level editor is currently intended to be used in the engine. The level editor source is located in the `Isometric_Level_Editor/` folder in this repository.
+This repository also includes an [Isometric Tactics game level editor](https://gx.games/games/sxf6us/isometricgame/tracks/b9575e97-92f6-4e65-942b-05878ab3a5a4/) that I developed in the GameMaker engine. Click the link to try the level editor in the browser on GX.games, but keep in mind that not everything will function as intended in-browser; the level editor is currently intended to be used in the engine. The level editor source is located in the `Isometric_Level_Editor/` folder in this repository.
 
 ### My Learning Outcomes
 - Grid data structures
