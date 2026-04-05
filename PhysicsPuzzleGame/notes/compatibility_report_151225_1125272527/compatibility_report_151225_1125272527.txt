@@ -1,0 +1,9 @@
+Missing audiogroup for sound: 'Snd_Regular_1' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Scaled_1' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Regular_2' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Scaled_2' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Regular_3' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Scaled_3' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Symphony_1' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Symphony_2' - setting to default audio group
+Missing audiogroup for sound: 'Snd_Intro' - setting to default audio group

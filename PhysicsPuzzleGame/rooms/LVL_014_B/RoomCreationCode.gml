@@ -1,0 +1,1 @@
+array_push(obj_gamemanager.unlockedbuttons,BUTTON_FUNC.LVL14)

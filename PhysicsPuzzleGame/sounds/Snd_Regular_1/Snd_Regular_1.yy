@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Snd_Regular_1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":3,
+  "conversionMode":0,
+  "duration":86.41412,
+  "exportDir":"",
+  "name":"Snd_Regular_1",
+  "parent":{
+    "name":"Regular",
+    "path":"folders/Sounds/1/Regular.yy",
+  },
+  "preload":true,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Snd_Regular_1",
+  "volume":1.0,
+}
