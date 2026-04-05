@@ -39,7 +39,7 @@ This repository also includes an [Isometric Tactics game level editor](https://g
 - Battle System?
 
 ### Retrospective
-I also might need to rethink how the grid works. If someone were to use my level editor, it would force them to develop their isometric tactics game using similar patterns as I did in making my grids. I am not sure if this is a good thing or bad.
+Upon reflection, I might need to rethink how the grid works. If someone were to use my level editor, it would force them to develop their isometric tactics game using similar patterns as I did in making my grids. I am not sure if this is a good thing or bad.
 
 ![Isometric Level Editor](screenshots/IsometricLevelEditor/LevelEditor_main.png)
 
