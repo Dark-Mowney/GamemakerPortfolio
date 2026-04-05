@@ -42,3 +42,19 @@ This repository also includes an [Isometric Tactics game level editor](https://g
 I also might need to rethink how the grid works. If someone were to use my level editor, it would force them to develop their isometric tactics game using similar patterns as I did in making my grids. I am not sure if this is a good thing or bad.
 
 ![Isometric Level Editor](screenshots/IsometricLevelEditor/LevelEditor_main.png)
+
+## Game Jams
+Here are two games from game jams I participated in. These are both solo projects that I completed in 24 hour game jams. They are both WIPs that I hope to return to at sometime.
+
+- **[Distracted Driving](https://gx.games/games/axj7c8/distracted-driving/tracks/b4524ddd-aa02-486d-84a3-db2c8d36c6bf/)**
+  - Distracted Driving is a game where you are driving a car while trying to also play your mobile game. You must drive your car while avoiding collision with other cars and succeed in your mobile game at the same time.
+  - Controls:
+    - WASD to move your car
+    - Move mouse to aim in the mobile game
+    - Left click to shoot in the mobile game
+    - Right click to drag your phone
+
+- **[TileGame](https://gx.games/games/ug5tjj/tilegame/tracks/0f3509e1-517e-4980-bd95-5b8d7751ed83/)**
+  - A game that I first had the idea for in school when we had a project where we made a board game. This was also my first ever game jam.
+  - To play the game you just click on bordering tiles to place your tiles. If you place your tiles in opposite sides then it creates a connection, once the board is full the game is over and whoever controls the most amount of the board is the winner.
+  - I was not able to fully implement all features of this game in the time of the game jam.
