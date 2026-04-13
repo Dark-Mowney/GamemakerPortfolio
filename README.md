@@ -43,6 +43,23 @@ Upon reflection, I might need to rethink how the grid works. If someone were to 
 
 ![Isometric Level Editor](screenshots/IsometricLevelEditor/LevelEditor_main.png)
 
+## Sudoku Puzzle Game
+
+This is a [Sudoku puzzle game](https://gx.games/games/gjqrpa/sudokuforios/tracks/9995dc72-24fb-47d0-ba15-815ae40a78c4/) developed in GameMaker. The project source is available in the `Sudoku/` folder in this repository.
+
+### My Learning Outcomes
+- Puzzle game mechanics
+- Mobile app development
+- Puzzle generation
+
+### Future Developments
+- Difficulty levels
+- Timer and scoring
+- Hint system
+- More puzzle variations
+
+<img src="screenshots/Sudoku/SudokuScreenshot.png" width="50%" alt="Sudoku Screenshot">
+
 ## Game Jams
 Here are two games from game jams I participated in. These are both solo projects that I completed in 24 hour game jams. They are both WIPs that I hope to return to at sometime.
 
