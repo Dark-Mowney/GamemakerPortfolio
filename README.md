@@ -45,7 +45,7 @@ Upon reflection, I might need to rethink how the grid works. If someone were to 
 
 ## Sudoku Puzzle Game
 
-This is a [Sudoku puzzle game](https://gx.games/games/gjqrpa/sudokuforios/tracks/9995dc72-24fb-47d0-ba15-815ae40a78c4/) developed in GameMaker. The project source is available in the `Sudoku/` folder in this repository.
+This is a [Sudoku puzzle game](https://gx.games/games/gjqrpa/sudokuforios/tracks/9995dc72-24fb-47d0-ba15-815ae40a78c4/) developed in GameMaker. The project source is available in the `Sudoku/` folder in this repository. This is my latest project I have worked on and is still very early in development.
 
 ### My Learning Outcomes
 - Puzzle game mechanics
