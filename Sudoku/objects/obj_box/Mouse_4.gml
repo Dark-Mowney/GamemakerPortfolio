@@ -11,11 +11,11 @@ with(obj_controller)
 		placeNumber = false
 		numMistakes++
 	}
-	clickValue = 0
 }
 
 if(placeNumber)
 {
 	showNumber = true
+	highlightBox()
 }
 

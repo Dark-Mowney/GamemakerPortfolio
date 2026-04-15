@@ -10,6 +10,7 @@ if(showNumber)
 
 
 ///Debug column and rows
-//draw_set_font(f_boxText_small)
+draw_set_font(f_boxText_small)
 //draw_text(x-14,y-14, "col" + string(col))
 //draw_text(x-14,y-24, "row" + string(row))
+//draw_text(x-14,y-34, "num" + string(boxNum))
