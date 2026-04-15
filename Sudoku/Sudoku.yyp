@@ -29,7 +29,9 @@
     {"id":{"name":"obj_box","path":"objects/obj_box/obj_box.yy",},},
     {"id":{"name":"obj_button","path":"objects/obj_button/obj_button.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
+    {"id":{"name":"obj_gameManager","path":"objects/obj_gameManager/obj_gameManager.yy",},},
     {"id":{"name":"obj_numButton","path":"objects/obj_numButton/obj_numButton.yy",},},
+    {"id":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},},
     {"id":{"name":"PuzzleRoom","path":"rooms/PuzzleRoom/PuzzleRoom.yy",},},
     {"id":{"name":"spr_boardBorder","path":"sprites/spr_boardBorder/spr_boardBorder.yy",},},
     {"id":{"name":"spr_box","path":"sprites/spr_box/spr_box.yy",},},
@@ -39,6 +41,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},},
     {"roomId":{"name":"PuzzleRoom","path":"rooms/PuzzleRoom/PuzzleRoom.yy",},},
   ],
   "templateType":"game",

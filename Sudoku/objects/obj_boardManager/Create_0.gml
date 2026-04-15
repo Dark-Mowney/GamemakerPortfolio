@@ -1,7 +1,8 @@
 randomise()
 
 boxGrid = ds_grid_create(9,9)
-difficulty = "none"
+difficulty = obj_gameManager.difficulty
+iterations = 0
 
 // Board size
 var grid_size = 9;
@@ -120,6 +121,18 @@ function make_solution(grid, row, col)
 
 function make_puzzle(grid)
 {
+	var target_removals;
+
+    switch (difficulty)
+    {
+        case "Easy":   target_removals = irandom_range(30, 40); break;
+        case "Medium": target_removals = irandom_range(41, 50); break;
+        case "Hard":   target_removals = irandom_range(51, 60); break;
+        case "none":   target_removals = irandom_range(30, 40); break;
+    }
+
+    var removed = 0;
+	
     var cells = []
 
     for (var r = 0; r < 9; r++) 
@@ -134,26 +147,29 @@ function make_puzzle(grid)
 
     for (var i = 0; i < array_length(cells); i++) 
     {
-        var r = cells[i][0]
-        var c = cells[i][1]
+        if (removed >= target_removals) break;
 
-        var box = grid[# c, r]
-		
-        var old_show = box.showNumber
+        var r = cells[i][0];
+        var c = cells[i][1];
 
-        box.showNumber = false
+        var box = grid[# c, r];
+        var old_show = box.showNumber;
 
-		var test_grid = copy_grid(grid)
-		var solutions = count_solutions_mrv(test_grid)
-		ds_grid_destroy(test_grid)
+        box.showNumber = false;
 
-        if (solutions != 1) {
-            box.showNumber = old_show
+        var test_grid = copy_grid(grid);
+        var solutions = count_solutions_mrv(test_grid);
+        ds_grid_destroy(test_grid);
+
+        if (solutions == 1) {
+            removed++;
+        } else {
+            box.showNumber = old_show;
         }
     }
 }
 
-function count_solutions(grid, row, col) //DEPRECIATED USE MRV NOW ***KEEP UNTIL MRV CONFIRMED TO BE BETTER
+function count_solutions(grid, row, col) //DEPRECIATED USE MRV NOW ***KEEP UNTIL MRV CONFIRMED TO BE BETTER (I THINK ITS BETTER BUT IUNNO)
 {
     if (row == 9)
 	{
@@ -261,7 +277,7 @@ function count_solutions_mrv(grid)
             box.boxNum = 0;
         }
     }
-
+	
     return total;
 }
 
@@ -344,5 +360,9 @@ function find_mrv_cell(grid)
 
 #endregion
 
+
 make_solution(boxGrid,0,0)
 make_puzzle(boxGrid)
+
+//debug message to show number of iterations through loops. just use iterations variable.
+//show_debug_message("iterations: " + string(iterations))
