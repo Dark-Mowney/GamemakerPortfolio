@@ -15,21 +15,29 @@ switch(buttonText)
 	room_goto_next()
 	break;
 	
-	case "Pencil":						//ALL OF THESE SHOULD BE AN ENUM STATE MACHINE
-	obj_controller.pencil = true
-	obj_controller.pen = false
-	obj_controller.erase = false
+	case "Pencil":
+	obj_controller.state = CONTROLLER_STATE.pencil
 	break;
 	
 	case "Pen":
-	obj_controller.pen = true
-	obj_controller.pencil = false
-	obj_controller.erase = false
+	obj_controller.state = CONTROLLER_STATE.pen
 	break;
 	
 	case "Erase":
-	obj_controller.pen = false
-	obj_controller.pencil = false
-	obj_controller.erase = true
+	obj_controller.state = CONTROLLER_STATE.erase
+	break;
+	
+	case "Debug":
+	with(obj_box)
+	{
+		debug = true
+	}
 	break;
 }
+
+with(obj_button)
+{
+	sprite_index = spr_button_unpressed
+}
+
+sprite_index = spr_button_pressed

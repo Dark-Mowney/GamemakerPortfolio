@@ -1,42 +1,49 @@
 var placeNumber = true
 
-if(obj_controller.pen) //Pretty ugly to do it like this
+switch(obj_controller.state)
 {
-	with(obj_controller)
-	{
-		if(clickValue <= 0)
+	case CONTROLLER_STATE.pen:
+		with(obj_controller)
 		{
-			placeNumber = false
+			if(clickValue <= 0)
+			{
+				placeNumber = false
+			}
+			else if(clickValue != other.boxNum)
+			{
+				placeNumber = false
+				numMistakes++
+			}
 		}
-		else if(clickValue != other.boxNum)
+		
+		if(placeNumber)
 		{
-			placeNumber = false
-			numMistakes++
+			showNumber = true
+			highlightBox()
 		}
-	}
 	
-	if(placeNumber)
-	{
-		showNumber = true
-		highlightBox()
-	}
-}
-else if(obj_controller.pencil)
-{
-	with(obj_controller)
-	{
-		if(clickValue <= 0)
+		break;
+	
+	case CONTROLLER_STATE.pencil:
+		with(obj_controller)
 		{
-			placeNumber = false
+			if(clickValue <= 0)
+			{
+				placeNumber = false
+			}
 		}
-	}
-	if(placeNumber)
-	{
-		array_push(pencilNumbers, string(obj_controller.clickValue))
-	}
-}
-else if(obj_controller.erase)
-{
-	pencilNumbers = []
+		if(placeNumber)
+		{
+			if(array_length(pencilNumbers) >= 4)
+			{
+				array_delete(pencilNumbers,0,1)
+			}
+			array_push(pencilNumbers, string(obj_controller.clickValue))
+		}
+		break;
+	
+	case CONTROLLER_STATE.erase:
+		pencilNumbers = []	
+		break;
 }
 

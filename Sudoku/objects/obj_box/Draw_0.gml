@@ -11,11 +11,14 @@ if(showNumber)
 
 ///Debug column and rows
 draw_set_font(f_boxText_small)
-//draw_text(x-14,y-14, "col" + string(col))
-//draw_text(x-14,y-24, "row" + string(row))
-//draw_text(x-14,y-34, "num" + string(boxNum))
+if(debug)
+{
+	draw_text(x-14,y-14, "col" + string(col))
+	draw_text(x-14,y-24, "row" + string(row))
+	draw_text(x-14,y-34, "num" + string(boxNum))
+}
 
 for(var i = 0; i< array_length(pencilNumbers); i++)
 {
-	draw_text(x-14,y-(14-(i*10)), pencilNumbers[i])
+	draw_text(x-34,y-(30-(i*16)), pencilNumbers[i])
 }

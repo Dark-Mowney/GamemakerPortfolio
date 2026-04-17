@@ -2,6 +2,8 @@ boxNum = 0
 showNumber = true
 pencilNumbers = []
 
+debug = false
+
 function highlightBox()
 {
 	image_blend = c_ltgray
