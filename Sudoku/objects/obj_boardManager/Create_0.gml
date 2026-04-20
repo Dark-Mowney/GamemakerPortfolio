@@ -31,6 +31,12 @@ for (var row = 0; row < grid_size; row++)
 
 #region FUNCTIONS
 
+/// @desc Checks whether a given number can be placed at a specific position in a Sudoku grid.
+/// @param grid The ds_grid containing Sudoku cell structs (each with a boxNum variable)
+/// @param row The row index (0–8)
+/// @param col The column index (0–8)
+/// @param num The number to validate (1–9)
+/// @returns True if the number can be placed at (row, col), false otherwise
 function is_valid(grid, row, col, num) 
 {
     // Check row
@@ -78,6 +84,11 @@ function is_valid(grid, row, col, num)
     return true;
 }
 
+/// @desc Recursively fills a Sudoku grid with a valid complete solution using backtracking.
+/// @param grid The ds_grid containing Sudoku cell structs (each with a boxNum variable)
+/// @param row The current row index (0–8)
+/// @param col The current column index (0–8)
+/// @returns True if a valid solution was generated, false if no solution is possible
 function make_solution(grid, row, col)
 {
     if (row == 9)
@@ -119,6 +130,9 @@ function make_solution(grid, row, col)
     return false
 }
 
+/// @desc Removes numbers from a completed Sudoku grid to create a playable puzzle, ensuring the puzzle has a unique solution.
+/// @param grid The ds_grid containing Sudoku cell structs
+/// @returns Nothing (modifies the grid in-place)
 function make_puzzle(grid)
 {
 	var target_removals;
@@ -169,7 +183,13 @@ function make_puzzle(grid)
     }
 }
 
-function count_solutions(grid, row, col) //DEPRECIATED USE MRV NOW ***KEEP UNTIL MRV CONFIRMED TO BE BETTER (I THINK ITS BETTER BUT IUNNO)
+/// @desc Counts the number of valid solutions for a Sudoku grid using backtracking. Stops early if more than one solution is found (useful for uniqueness checks).
+/// @param grid The ds_grid containing Sudoku cell structs (boxNum, showNumber)
+/// @param row The current row index (0–8)
+/// @param col The current column index (0–8)
+/// @returns The number of solutions found (0, 1, or 2+)
+/// @note Deprecated: replaced by count_solutions_mrv() for better performance
+function count_solutions(grid, row, col)
 {
     if (row == 9)
 	{
@@ -234,6 +254,9 @@ function count_solutions(grid, row, col) //DEPRECIATED USE MRV NOW ***KEEP UNTIL
     return total
 }
 
+/// @desc Counts the number of valid Sudoku solutions using a Minimum Remaining Values (MRV) heuristic. Selects the cell with the fewest valid candidates to improve performance. Stops early if more than one solution is found.
+/// @param grid The ds_grid containing Sudoku cell structs (boxNum, showNumber)
+/// @returns The number of solutions (0, 1, or 2+)
 function count_solutions_mrv(grid)
 {
     var cell = find_mrv_cell(grid)
@@ -281,6 +304,9 @@ function count_solutions_mrv(grid)
     return total;
 }
 
+/// @desc Creates a deep copy of a Sudoku grid for solving purposes. Hidden cells are cleared (boxNum = 0) so the solver treats them as empty.
+/// @param original The source ds_grid containing cell structs (boxNum, showNumber)
+/// @returns A new ds_grid with independent cell structs
 function copy_grid(original)
 {
     var new_grid = ds_grid_create(9, 9)
@@ -309,6 +335,12 @@ function copy_grid(original)
     return new_grid
 }
 
+
+/// @desc Finds the empty cell with the fewest valid candidate numbers (MRV heuristic). Used to optimize backtracking by selecting the most constrained cell first.
+/// @param grid The ds_grid containing Sudoku cell structs (boxNum, showNumber)
+/// @returns An array [row, col, count]:
+///          - row, col: position of the selected cell
+///          - count: number of valid candidates
 function find_mrv_cell(grid)
 {
     var best_row = -1

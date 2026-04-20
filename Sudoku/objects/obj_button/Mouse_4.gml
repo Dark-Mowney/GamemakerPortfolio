@@ -33,6 +33,12 @@ switch(buttonText)
 		debug = true
 	}
 	break;
+	
+	case "Load Game":
+	with(obj_gameManager)
+	{
+		loadedGame = true
+	}
 }
 
 with(obj_button)
