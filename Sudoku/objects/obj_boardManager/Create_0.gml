@@ -3,6 +3,10 @@ randomise()
 boxGrid = ds_grid_create(9,9)
 difficulty = obj_gameManager.difficulty
 iterations = 0
+win = false
+winText = "YOU WON!!!"
+
+savedjson = 0
 
 // Board size
 var grid_size = 9;
@@ -188,7 +192,7 @@ function make_puzzle(grid)
 /// @param row The current row index (0–8)
 /// @param col The current column index (0–8)
 /// @returns The number of solutions found (0, 1, or 2+)
-/// @note Deprecated: replaced by count_solutions_mrv() for better performance
+/// @note DEPRECATED: replaced by count_solutions_mrv() for better performance
 function count_solutions(grid, row, col)
 {
     if (row == 9)
@@ -224,10 +228,10 @@ function count_solutions(grid, row, col)
 	{
 		if (nums[i] == correct) 
 		{
-        var temp = nums[8]
-        nums[8] = nums[i]
-        nums[i] = temp
-        break;
+			var temp = nums[8]
+			nums[8] = nums[i]
+			nums[i] = temp
+			break;
 		}
 	}
 
@@ -390,11 +394,87 @@ function find_mrv_cell(grid)
     return [best_row, best_col, best_count]
 }
 
+function save_puzzle(grid)
+{
+	var data = [];
+
+	var w = ds_grid_width(grid);
+	var h = ds_grid_height(grid);
+	
+	for (var i = 0; i < w; i++)
+	{
+	    for (var j = 0; j < h; j++)
+	    {
+	        var box = grid[# i, j];
+	
+	        array_push(data, {
+	            boxNum: box.boxNum,
+	            showNumber: box.showNumber
+	        })
+	    }
+	}
+	
+	var json = json_stringify(data);
+	
+	var buffer = buffer_create(string_length(json) + 1, buffer_fixed, 1);
+	buffer_write(buffer, buffer_string, json);
+
+	buffer_save(buffer, "save.json");
+	buffer_delete(buffer);
+	show_message("GAME SAVED")
+}
+
+function load_puzzle(grid)
+{
+	var buffer = buffer_load("save.json");
+	
+	if (buffer != -1)
+	{
+		var json = buffer_read(buffer, buffer_string);
+		buffer_delete(buffer);
+		
+		var data = json_parse(json);
+		
+		var w = ds_grid_width(grid)
+		var h = ds_grid_height(grid)
+		
+		var index = 0;
+		
+		for (var i = 0; i < w; i++)
+		{
+		    for (var j = 0; j < h; j++)
+		    {
+		        var box = grid[# i, j]
+		        var entry = data[index]
+		
+		        box.boxNum = entry.boxNum
+		        box.showNumber = entry.showNumber
+		
+		        index++
+		    }
+		}
+	}
+	else
+	{
+	    show_message("Failed to load buffer on GX.games");
+	}
+	
+}
+
 #endregion
 
 
 make_solution(boxGrid,0,0)
 make_puzzle(boxGrid)
+if(obj_gameManager.loadedGame)
+{
+	show_debug_message("LOADING PUZZLE")
+	if(load_puzzle(boxGrid))
+	{
+		show_debug_message(game_save_id)
+	}
+}
+		
 
 //debug message to show number of iterations through loops. just use iterations variable.
 //show_debug_message("iterations: " + string(iterations))

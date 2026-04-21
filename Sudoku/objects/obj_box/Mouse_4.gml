@@ -47,3 +47,19 @@ switch(obj_controller.state)
 		break;
 }
 
+var win = true
+
+with (obj_box)
+{
+	if(!showNumber)
+	{
+		win = false
+		break;
+	}
+}
+
+if(win)
+{
+	obj_boardManager.win = win
+}
+

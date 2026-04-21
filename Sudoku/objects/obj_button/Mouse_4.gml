@@ -39,6 +39,12 @@ switch(buttonText)
 	{
 		loadedGame = true
 	}
+	room_goto_next()
+	break;
+	
+	case "Save Game":
+	obj_boardManager.save_puzzle(obj_boardManager.boxGrid)
+	break;
 }
 
 with(obj_button)
