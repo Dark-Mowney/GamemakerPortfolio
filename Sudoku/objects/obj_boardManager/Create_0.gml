@@ -397,7 +397,8 @@ function find_mrv_cell(grid)
 function save_puzzle(grid)
 {
 	var data = [];
-
+	
+	#region SAVE BOARD
 	var w = ds_grid_width(grid);
 	var h = ds_grid_height(grid);
 	
@@ -409,7 +410,8 @@ function save_puzzle(grid)
 	
 	        array_push(data, {
 	            boxNum: box.boxNum,
-	            showNumber: box.showNumber
+	            showNumber: box.showNumber,
+				pencilNumbers: box.pencilNumbers
 	        })
 	    }
 	}
@@ -419,21 +421,39 @@ function save_puzzle(grid)
 	var buffer = buffer_create(string_length(json) + 1, buffer_fixed, 1);
 	buffer_write(buffer, buffer_string, json);
 
-	buffer_save(buffer, "save.json");
+	buffer_save(buffer, "gridsave.json");
 	buffer_delete(buffer);
+	#endregion
+	
+	#region SAVE GAME MANAGER
+	data = [];
+	var boardManager = instance_find(obj_boardManager, 0)
+	array_push(data, {
+		difficulty: boardManager.difficulty
+	})
+	json = json_stringify(data);
+	
+	buffer = buffer_create(string_length(json) + 1, buffer_fixed, 1);
+	buffer_write(buffer, buffer_string, json);
+
+	buffer_save(buffer, "boardmanagersave.json");
+	buffer_delete(buffer);
+	#endregion
+	
 	show_message("GAME SAVED")
 }
 
 function load_puzzle(grid)
 {
-	var buffer = buffer_load("save.json");
+	var gridbuffer = buffer_load("gridsave.json")
+	var boardmanagerbuffer = buffer_load("boardmanagersave.json")
 	
-	if (buffer != -1)
+	if (gridbuffer != -1)
 	{
-		var json = buffer_read(buffer, buffer_string);
-		buffer_delete(buffer);
+		var json = buffer_read(gridbuffer, buffer_string)
+		buffer_delete(gridbuffer)
 		
-		var data = json_parse(json);
+		var data = json_parse(json)
 		
 		var w = ds_grid_width(grid)
 		var h = ds_grid_height(grid)
@@ -449,6 +469,7 @@ function load_puzzle(grid)
 		
 		        box.boxNum = entry.boxNum
 		        box.showNumber = entry.showNumber
+				box.pencilNumbers = entry.pencilNumbers
 		
 		        index++
 		    }
@@ -456,7 +477,22 @@ function load_puzzle(grid)
 	}
 	else
 	{
-	    show_message("Failed to load buffer on GX.games");
+	    show_message("Failed to load grid buffer on GX.games")
+	}
+	
+	if(boardmanagerbuffer != -1)
+	{
+		var json = buffer_read(boardmanagerbuffer, buffer_string)
+		buffer_delete(boardmanagerbuffer)
+		
+		var data = json_parse(json)
+		var boardManager = instance_find(obj_boardManager, 0)
+		boardManager.difficulty = data[0].difficulty ///index 0 because right now there is only one entry. I think I would turn this into an enum if I were to add more entries.
+		
+	}
+	else
+	{
+	    show_message("Failed to load boardmanager buffer on GX.games")
 	}
 	
 }
